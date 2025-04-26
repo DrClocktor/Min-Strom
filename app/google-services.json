@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "768146146728",
+    "project_id": "min-strom-79afb",
+    "storage_bucket": "min-strom-79afb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768146146728:android:b2a116f429ed8a5dd0899d",
+        "android_client_info": {
+          "package_name": "com.example.minstrom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPMGYImJo1sfesBBWe22lOggioEJj3Fe0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
