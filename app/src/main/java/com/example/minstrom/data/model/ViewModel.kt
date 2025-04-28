@@ -1,4 +1,4 @@
-package com.example.minstrom
+package com.example.minstrom.data.model
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
