@@ -57,15 +57,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.google.api.client.android)
-    implementation(libs.google.api.services.calendar)
     implementation(libs.google.oauth.client.jetty)
 
-// Import the Firebase BoM
     implementation(platform(libs.firebase.bom))
-
-    // TODO: Add the dependencies for Firebase products you want to use
-    // When using the BoM, don't specify versions in Firebase dependencies
     implementation(libs.firebase.analytics)
+    implementation(libs.firebase.firestore)
+
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
