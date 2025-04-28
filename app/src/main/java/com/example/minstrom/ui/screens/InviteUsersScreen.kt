@@ -96,7 +96,8 @@ fun InviteUsersScreen(navController: NavController) {
                 iconRes = R.drawable.ic_email,
                 title = "Email",
                 subtitle = "Inviter brugere via Email",
-                onClick = { /* Handling for Email */ }
+                onClick = { navController.navigate("invite_email") // 👈 Naviger til InviteUsersEmail
+                }
             )
 
             Spacer(modifier = Modifier.height(16.dp))

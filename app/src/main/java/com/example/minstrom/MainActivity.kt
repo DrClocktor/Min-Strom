@@ -15,6 +15,7 @@ import com.example.minstrom.ui.theme.MinStromTheme
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.minstrom.ui.screens.InviteUsersEmail
 import com.example.minstrom.ui.screens.InviteUsersSms
 
 class MainActivity : ComponentActivity() {
@@ -31,6 +32,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("invite_sms") {
                             InviteUsersSms(navController)
+                        }
+                        composable("invite_email") { //  Ny side til e-mail invitation
+                            InviteUsersEmail(navController)
                         }
                     }
                 }
