@@ -69,6 +69,9 @@ class MainActivity : ComponentActivity() {
                             composable("menu") {
                                 MenuScreen(navController)
                             }
+                            composable("add_plan") {
+                                AddPlanScreen(navController)
+                            }
                         }
                     }
                 }

@@ -53,7 +53,7 @@ fun MenuScreen(navController: NavController) {
         ) {
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Top grid (2x2)
+            // Top grid
             Column(
                 modifier = Modifier.fillMaxWidth()
             ) {
