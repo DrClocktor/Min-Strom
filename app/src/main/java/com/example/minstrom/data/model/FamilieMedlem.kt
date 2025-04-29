@@ -1,6 +1,7 @@
 package com.example.minstrom.data.model
-
 import com.google.firebase.Timestamp
+
+//Dette er data "skabelonen"
 
 data class FamilieMedlem(
     val familieNavn: String = "",
