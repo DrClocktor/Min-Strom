@@ -73,10 +73,10 @@ class MainActivity : ComponentActivity() {
                     }
                 }
 
-                // Fetch and print the FCM token
+                // Hent og print FCM-token
                 FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
                     if (!task.isSuccessful) {
-                        Log.w("FCM", "Fetching FCM registration token failed", task.exception)
+                        Log.w("FCM", "Hentning af FCM-token fejlede", task.exception)
                         return@addOnCompleteListener
                     }
                     val token = task.result
@@ -88,7 +88,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// Ekstra skærm til notifikations-test
 @Composable
 fun NotificationTestScreen(viewModel: ViewModel) {
     val context = LocalContext.current

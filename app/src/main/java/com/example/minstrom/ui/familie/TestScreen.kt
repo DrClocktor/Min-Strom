@@ -3,10 +3,7 @@ package com.example.minstrom.ui.familie
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.minstrom.data.model.FamilieMedlem
-import com.example.minstrom.repository.FamilyRepository
 import com.example.minstrom.ui.viewModel.TestScreenViewModel
 
 @Composable
