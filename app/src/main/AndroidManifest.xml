@@ -28,7 +28,7 @@
 
         <!-- Main Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MinStrom">
@@ -38,9 +38,10 @@
             </intent-filter>
         </activity>
 
+
         <!-- Firebase Messaging Service -->
         <service
-            android:name=".repository.MyFirebaseMessagingService"
+            android:name=".services.MyFirebaseMessagingService"
             android:exported="false"
             tools:ignore="Instantiatable">
             <intent-filter>
