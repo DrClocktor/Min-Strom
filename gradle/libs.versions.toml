@@ -1,5 +1,5 @@
 [versions]
-agp = "8.8.1"
+agp = "8.8.2"
 kotlin = "2.0.0"
 composeCompiler = "1.6.10"
 
@@ -27,6 +27,7 @@ androidxJunit = "1.2.1"
 espressoCore = "3.6.1"
 
 googleServices = "4.4.1"
+
 [libraries]
 # Core
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -71,4 +72,3 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
-
