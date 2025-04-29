@@ -1,12 +1,21 @@
 package com.example.minstrom
 
+
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,9 +26,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.minstrom.data.model.ViewModel
-import com.example.minstrom.ui.screens.InviteUsersEmail
-import com.example.minstrom.ui.screens.InviteUsersScreen
-import com.example.minstrom.ui.screens.InviteUsersSms
+import com.example.minstrom.ui.screens.*
 import com.example.minstrom.ui.theme.MinStromTheme
 import com.google.firebase.messaging.FirebaseMessaging
 
@@ -40,7 +47,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = "invite_users",
+                            startDestination = "PlanningScreen",
                             modifier = Modifier.fillMaxSize()
                         ) {
                             composable("invite_users") {
@@ -54,6 +61,13 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("notification_test") {
                                 NotificationTestScreen(viewModel)
+                            }
+                            // 👇 Tilføj dine nye skærme
+                            composable("planning") {
+                                PlanningScreen(navController)
+                            }
+                            composable("menu") {
+                                MenuScreen(navController)
                             }
                         }
                     }
