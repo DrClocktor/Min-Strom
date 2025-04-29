@@ -20,6 +20,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packaging {
+        resources {
+            excludes += "/META-INF/DEPENDENCIES"
+            excludes += "/META-INF/LICENSE"
+            excludes += "/META-INF/LICENSE.txt"
+            excludes += "/META-INF/NOTICE"
+            excludes += "/META-INF/NOTICE.txt"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -63,17 +73,18 @@ android {
     }
 }
 dependencies {
-    // Core
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-
     // Compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-text")
+    implementation("androidx.compose.material3:material3")
+
+    // Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.5")
 
     // Lifecycle ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -86,9 +97,12 @@ dependencies {
     implementation(libs.firebase.messaging)
 
     // Google API Client and Auth
+    implementation("com.google.api-client:google-api-client-android:1.34.0")
+    implementation("com.google.api-client:google-api-client-gson:1.34.0")
+    implementation("com.google.oauth-client:google-oauth-client-jetty:1.34.0")
     implementation(libs.google.api.client.android)
-    implementation(libs.google.api.client) // This uses 1.35.0
-    implementation(libs.google.api.client.v250) // This uses 2.5.0
+    implementation(libs.google.api.client) // 1.35.0
+    implementation(libs.google.api.client.v250) // 2.5.0
     implementation(libs.google.oauth.client.jetty)
     implementation(libs.google.http.client)
     implementation(libs.google.http.client.gson)
