@@ -1,19 +1,17 @@
 package com.example.minstrom.repository
 
 import com.example.minstrom.data.model.FamilieMedlem
-import com.google.firebase.Timestamp
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-//Her håndteres database kald
-class FamilyRepository {
-    fun upload(
-        familieMedlem: FamilieMedlem,
-    ) {
-        val familieCollection = Firebase.firestore.collection("familier")
+//Her håndteres databasen (Slags mellemmand mellem database og app)
 
-        familieCollection
-            .add(familieMedlem)
+class FamilyRepository {
+    fun addFamilyMember(familieMedlem: FamilieMedlem) {
+        val familieCollection = Firebase.firestore.collection("familier") //Her defineres collection arbejdes med
+
+        familieCollection //Her tilføjes data
+            .add(familieMedlem) //Tilføjer nyt dokument til collection (Indeholder ikke data endnu)
             .addOnSuccessListener { documentReference ->
                 println("Tilføjet med ID: ${documentReference.id}")
             }
