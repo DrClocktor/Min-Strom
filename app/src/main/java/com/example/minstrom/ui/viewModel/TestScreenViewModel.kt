@@ -5,13 +5,13 @@ import com.example.minstrom.data.model.FamilieMedlem
 import com.example.minstrom.repository.FamilyRepository
 
 class TestScreenViewModel: ViewModel() {
-    val familyRepository = FamilyRepository()
+    private val familyRepository = FamilyRepository() //Hvorfor private?
 
-    fun upload () {
-        familyRepository.upload(
+    fun upload () { //Opretter et FamilieMedlem-objekt og beder famlilyRepository om at upload det til databasen
+        familyRepository.addFamilyMember(
             FamilieMedlem(
-            familieNavn = "",
-            medlemmer = listOf(""),
+            familieNavn = "Test Familie",
+            medlemmer = listOf("test@test.dk", "tester@test.dk"),
         )
         )
     }

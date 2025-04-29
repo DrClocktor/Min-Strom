@@ -1,8 +1,5 @@
 [versions]
-agp = "8.9.2"
-googleApiClientAndroidVersion = "1.34.0"
-googleApiClientGson = "1.34.0"
-googleOauthClientJettyVersion = "1.34.0"
+agp = "8.8.2"
 kotlin = "2.0.0"
 composeCompiler = "1.6.10"
 
