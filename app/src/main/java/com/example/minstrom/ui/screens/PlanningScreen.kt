@@ -44,11 +44,18 @@ fun PlanningScreen(navController: NavController) {
         bottomBar = {
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 Button(
-                    onClick = { /* Naviger til Tilføj plan */ },
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth(0.9f),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0A7EFD))
+                    onClick = { navController.navigate("add_plan")
+                    },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFF0A7EFD),
+                        contentColor = MaterialTheme.colorScheme.primary ),
+
+                    elevation = ButtonDefaults.buttonElevation(
+                        defaultElevation = 0.dp, // <-- ingen skygge
+                        pressedElevation = 0.dp,
+                        focusedElevation = 0.dp,
+                        hoveredElevation = 0.dp
+                    )
                 ) {
                     Text("Tilføj plan", color = Color.White, fontSize = 18.sp)
                 }
@@ -153,7 +160,7 @@ fun PlanCard(title: String, days: List<String>, time: String, iconRes: Int) {
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFF6F6F6))
     ) {
-        Row(modifier = Modifier.padding(20.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(modifier = Modifier.padding(19.dp), verticalAlignment = Alignment.CenterVertically) {
             Image(
                 painter = painterResource(id = iconRes),
                 contentDescription = title,

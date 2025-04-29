@@ -44,6 +44,16 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.minstrom.R
+import android.telephony.SmsManager
+import android.Manifest
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 
 
 
@@ -53,6 +63,7 @@ fun InviteUsersSms(navController: NavController) {
     var phoneNumber by remember { mutableStateOf("") }
     val isPhoneNumberValid = isValidPhoneNumber(phoneNumber)
     var showDialog by remember { mutableStateOf(false) }
+    val context = LocalContext.current
 
     Scaffold(
         topBar = {
@@ -151,7 +162,11 @@ fun InviteUsersSms(navController: NavController) {
             // Blå "Fortsæt" knap
             Button(
                 onClick = {
-                    showDialog = true // 👈 Når de trykker, vis pop-u
+                    if (isPhoneNumberValid) {
+                        val message = "Hej! Vil du være med i Min Strøm appen? Download her: [link]"
+                        inviteUserSMS(context, phoneNumber, message)
+                        showDialog = true
+                    }
                 },
                 modifier = Modifier
                     .width(220.dp)
@@ -162,6 +177,7 @@ fun InviteUsersSms(navController: NavController) {
             ) {
                 Text(text = "Fortsæt", fontSize = 18.sp)
             }
+
             if (showDialog) {
                 AlertDialog(
                     onDismissRequest = { showDialog = false },
@@ -169,22 +185,30 @@ fun InviteUsersSms(navController: NavController) {
                         Button(
                             onClick = { showDialog = false },
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFF0A7EFD) // Din blå farve
+                                containerColor = Color(0xFF0A7EFD)
                             )
                         ) {
                             Text("OK")
                         }
                     },
                     title = {
-                        Text(text = "Invitation sendt!")
+                        Text(text = "Nu kan du sende invitationen!")
                     },
                     text = {
-                        Text(text = "Den inviterede vil modtage et link på SMS og blive tilføjet til planlægningsfunktionen i Min Strøm⚡.")
+                        Text(text = "Når modtageren får et link på SMS og  vil de blive tilføjet til planlægningsfunktionen i Min Strøm⚡.")
                     }
                 )
             }
         }
     }
+}
+
+fun inviteUserSMS(context: Context, phoneNumber: String, message: String) {
+    val intent = Intent(Intent.ACTION_SENDTO).apply {
+        data = Uri.parse("smsto:$phoneNumber")
+        putExtra("sms_body", message)
+    }
+    context.startActivity(intent)
 }
 
 
