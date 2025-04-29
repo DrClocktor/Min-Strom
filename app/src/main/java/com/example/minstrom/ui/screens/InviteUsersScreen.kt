@@ -37,7 +37,11 @@ fun InviteUsersScreen(navController: NavController) {
                     )
                 },
                 navigationIcon = {
-                    IconButton(onClick = { /* Tilbage handling */ }) {
+                    IconButton(onClick = {
+                        navController.navigate("menu") {
+                            popUpTo("menu") { inclusive = true }
+                        }
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_back),
                             contentDescription = "Tilbage"
@@ -96,7 +100,7 @@ fun InviteUsersScreen(navController: NavController) {
                 iconRes = R.drawable.ic_email,
                 title = "Email",
                 subtitle = "Inviter brugere via Email",
-                onClick = { navController.navigate("invite_email") // 👈 Naviger til InviteUsersEmail
+                onClick = { navController.navigate("invite_email") // til InviteUsersEmail
                 }
             )
 

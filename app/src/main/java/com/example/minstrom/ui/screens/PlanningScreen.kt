@@ -30,7 +30,7 @@ fun PlanningScreen(navController: NavController) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Planlæg", fontSize = 22.sp, fontWeight = FontWeight.Bold) },
+                title = { Text("Planlægning", fontSize = 22.sp, fontWeight = FontWeight.Bold) },
                 actions = {
                     IconButton(onClick = {navController.navigate("menu")}) {
                         Icon(
@@ -77,19 +77,27 @@ fun PlanningScreen(navController: NavController) {
                 text = "De næste 7 dages priser",
                 fontWeight = FontWeight.Bold,
                 fontSize = 17.sp,
-                modifier = Modifier.fillMaxWidth(),   // 👈 VIGTIGT!
+                modifier = Modifier.fillMaxWidth(),
             )
 
             Spacer(modifier = Modifier.height(25.dp))
 
-            Image(
-                painter = painterResource(id = R.drawable.electricity_prices_chart),
-                contentDescription = "Prisgraf",
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(240.dp)
-                    .background(Color.White, shape = RoundedCornerShape(30.dp))
-            )
+                    .background(Color.White, shape = RoundedCornerShape(30.dp)),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.electricity_prices_chart),
+                    contentDescription = "Prisgraf",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp)
+                )
+            }
+
 
             Spacer(modifier = Modifier.height(20.dp))
 

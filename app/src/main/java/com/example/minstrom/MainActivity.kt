@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = "PlanningScreen",
+                            startDestination = "planning",
                             modifier = Modifier.fillMaxSize()
                         ) {
                             composable("invite_users") {
