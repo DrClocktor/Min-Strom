@@ -68,12 +68,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-text")
-    implementation("androidx.compose.material3:material3")
+    implementation(libs.ui)
+    implementation(libs.androidx.ui.text)
+    implementation(libs.material3)
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation(libs.androidx.navigation.compose)
 
     // Lifecycle ViewModel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -86,9 +86,9 @@ dependencies {
     implementation(libs.firebase.messaging)
 
     // Google API Client and Auth
-    implementation("com.google.api-client:google-api-client-android:1.34.0")
-    implementation("com.google.api-client:google-api-client-gson:1.34.0")
-    implementation("com.google.oauth-client:google-oauth-client-jetty:1.34.0")
+    implementation(libs.google.api.client.android.v1340)
+    implementation(libs.google.api.client.gson)
+    implementation(libs.google.oauth.client.jetty.v1340)
     implementation(libs.google.api.client.android)
     implementation(libs.google.api.client) // 1.35.0
     implementation(libs.google.api.client.v250) // 2.5.0
@@ -96,6 +96,8 @@ dependencies {
     implementation(libs.google.http.client)
     implementation(libs.google.http.client.gson)
     implementation(libs.google.auth.library.oauth2.http)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.firebase.database.ktx)
 
     // Testing
     testImplementation(libs.junit)
