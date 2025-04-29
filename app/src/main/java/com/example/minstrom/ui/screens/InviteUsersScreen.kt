@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.minstrom.R
-import com.example.minstrom.ui.calendar.CalendarScreen  // <-- Correct import added here
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,10 +45,7 @@ fun InviteUsersScreen(navController: NavController) {
                     }
                 },
                 actions = {
-                    // Handle menu button click
-                    IconButton(onClick = {
-                        navController.navigate("calendar")  // Navigate to CalendarScreen
-                    }) {
+                    IconButton(onClick = { /* Menu handling */ }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_menu),
                             contentDescription = "Menu"
@@ -100,7 +96,7 @@ fun InviteUsersScreen(navController: NavController) {
                 iconRes = R.drawable.ic_email,
                 title = "Email",
                 subtitle = "Inviter brugere via Email",
-                onClick = { navController.navigate("invite_email") // Navigate to InviteUsersEmail
+                onClick = { navController.navigate("invite_email") // 👈 Naviger til InviteUsersEmail
                 }
             )
 
@@ -111,7 +107,7 @@ fun InviteUsersScreen(navController: NavController) {
                 title = "Kontakter",
                 subtitle = "Inviter brugere via SMS",
                 onClick = {
-                    navController.navigate("invite_sms") // Navigate to InviteUsersSms
+                    navController.navigate("invite_sms") // Navigerer til InviteUsersSms
                 }
             )
         }
