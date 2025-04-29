@@ -69,7 +69,7 @@ fun InviteUsersSms(navController: NavController) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { /* Menu handling */ }) {
+                    IconButton(onClick = { navController.navigate("menu") }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_menu),
                             contentDescription = "Menu",

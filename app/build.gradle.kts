@@ -15,8 +15,29 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.6.10"
+    }
+
+    packaging {
+        resources {
+            excludes += setOf(
+                "META-INF/DEPENDENCIES",
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/NOTICE",
+                "META-INF/NOTICE.txt",
+                "META-INF/ASL2.0",
+                "META-INF/INDEX.LIST"
+            )
+        }
     }
 
     buildTypes {
@@ -37,40 +58,16 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.6.10" // recommended for Kotlin 2.0.0
-    }
-
-    packaging {
-        resources {
-            excludes += setOf(
-                "META-INF/DEPENDENCIES",
-                "META-INF/LICENSE",
-                "META-INF/LICENSE.txt",
-                "META-INF/NOTICE",
-                "META-INF/NOTICE.txt",
-                "META-INF/ASL2.0",
-                "META-INF/INDEX.LIST"
-            )
-        }
-    }
 }
 
 dependencies {
     // Compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.text)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.ui)
-    implementation(libs.androidx.ui.text)
-    implementation(libs.material3)
 
     // Navigation
     implementation(libs.androidx.navigation.compose)
@@ -84,20 +81,21 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.messaging)
+    implementation(libs.firebase.database.ktx)
 
     // Google API Client and Auth
     implementation(libs.google.api.client.android.v1340)
     implementation(libs.google.api.client.gson)
     implementation(libs.google.oauth.client.jetty.v1340)
-    implementation(libs.google.api.client.android)
-    implementation(libs.google.api.client) // 1.35.0
-    implementation(libs.google.api.client.v250) // 2.5.0
+    implementation(libs.google.api.client)
+    implementation(libs.google.api.client.v250)
     implementation(libs.google.oauth.client.jetty)
     implementation(libs.google.http.client)
     implementation(libs.google.http.client.gson)
     implementation(libs.google.auth.library.oauth2.http)
+
+    // AndroidX
     implementation(libs.androidx.appcompat)
-    implementation(libs.firebase.database.ktx)
 
     // Testing
     testImplementation(libs.junit)
