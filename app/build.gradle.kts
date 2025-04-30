@@ -84,14 +84,14 @@ dependencies {
     implementation(libs.firebase.database.ktx)
 
     // Google API Client and Auth
-    implementation(libs.google.api.client.android.v1340)
+    implementation(libs.google.api.client.android)
     implementation(libs.google.api.client.gson)
-    implementation(libs.google.oauth.client.jetty.v1340)
+    implementation(libs.google.oauth.client.jetty)
     implementation(libs.google.api.client)
     implementation(libs.google.api.client.v250)
     implementation(libs.google.oauth.client.jetty)
     implementation(libs.google.http.client)
-    implementation(libs.google.http.client.gson)
+    implementation(libs.google.api.client.gson)
     implementation(libs.google.auth.library.oauth2.http)
 
     // AndroidX

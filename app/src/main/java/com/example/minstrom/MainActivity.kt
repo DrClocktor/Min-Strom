@@ -27,6 +27,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.minstrom.data.model.ViewModel
 import com.example.minstrom.ui.screens.*
+import com.example.minstrom.ui.test.UsersScreen
 import com.example.minstrom.ui.theme.MinStromTheme
 import com.google.firebase.messaging.FirebaseMessaging
 
@@ -50,6 +51,21 @@ class MainActivity : ComponentActivity() {
                             startDestination = "planning",
                             modifier = Modifier.fillMaxSize()
                         ) {
+                            composable("planning") {
+                                PlanningScreen(navController)
+                            }
+                            composable("add_plan") {
+                                AddPlanScreen(navController)
+                            }
+                            composable("menu") {
+                                MenuScreen(navController)
+                            }
+                            composable("users") {
+                                UsersScreen(navController = navController)
+                            }
+                            composable("add_user") {
+                                AddUsersScreen(navController = navController)
+                            }
                             composable("invite_users") {
                                 InviteUsersScreen(navController)
                             }
@@ -62,16 +78,7 @@ class MainActivity : ComponentActivity() {
                             composable("notification_test") {
                                 NotificationTestScreen(viewModel)
                             }
-                            // 👇 Tilføj dine nye skærme
-                            composable("planning") {
-                                PlanningScreen(navController)
-                            }
-                            composable("menu") {
-                                MenuScreen(navController)
-                            }
-                            composable("add_plan") {
-                                AddPlanScreen(navController)
-                            }
+
                         }
                     }
                 }

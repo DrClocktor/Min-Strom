@@ -109,7 +109,7 @@ fun InviteUsersSms(navController: NavController) {
             Spacer(modifier = Modifier.height(35.dp))
 
             Image(
-                painter = painterResource(id = R.drawable.invite), // Dit billede her
+                painter = painterResource(id = R.drawable.invite), //  billede her
                 contentDescription = "Telefon illustration",
                 modifier = Modifier
                     .fillMaxWidth()
@@ -127,7 +127,7 @@ fun InviteUsersSms(navController: NavController) {
                 placeholder = { Text("12 34 56 78") },
                 leadingIcon = {
                     Image(
-                        painter = painterResource(id = R.drawable.flag_denmark), // 👈 Dit flag billede
+                        painter = painterResource(id = R.drawable.flag_denmark), //flag billede
                         contentDescription = "Flag",
                         modifier = Modifier.size(30.dp),
                     )
@@ -135,7 +135,7 @@ fun InviteUsersSms(navController: NavController) {
                 trailingIcon = {
                     if (isPhoneNumberValid) {
                         Image(
-                            painter = painterResource(id = R.drawable.ic_verified), // dit grønne check ikon
+                            painter = painterResource(id = R.drawable.ic_verified), // check ikon
                             contentDescription = "Verified",
                             modifier = Modifier.size(45.dp)
                         )
@@ -152,8 +152,8 @@ fun InviteUsersSms(navController: NavController) {
                 shape = RoundedCornerShape(20.dp),
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Color(0xFFF2F2F2),
-                    focusedIndicatorColor = Color.Transparent, // 👈 No line when focused
-                    unfocusedIndicatorColor = Color.Transparent // 👈 No line when unfocused
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
                 )
             )
 
@@ -163,7 +163,7 @@ fun InviteUsersSms(navController: NavController) {
             Button(
                 onClick = {
                     if (isPhoneNumberValid) {
-                        val message = "Hej! Vil du være med i Min Strøm appen? Download her: [link]"
+                        val message = "Hej! Vil du være med i Min Strøm appen? Download her:https://apps.apple.com/dk/app/min-str%C3%B8m/id1615436711"
                         inviteUserSMS(context, phoneNumber, message)
                         showDialog = true
                     }
@@ -220,7 +220,6 @@ fun isValidPhoneNumber(number: String): Boolean {
 @Preview(showBackground = true)
 @Composable
 fun InviteUsersSmsPreview() {
-    InviteUsersSms(navController = rememberNavController())
 }
 
 

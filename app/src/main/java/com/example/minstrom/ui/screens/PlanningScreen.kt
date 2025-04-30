@@ -186,5 +186,4 @@ fun PlanCard(title: String, days: List<String>, time: String, iconRes: Int) {
 @Preview(showBackground = true)
 @Composable
 fun PlanningScreenPreview() {
-    PlanningScreen(navController = rememberNavController())
 }
