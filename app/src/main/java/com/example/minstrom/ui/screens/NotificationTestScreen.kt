@@ -1,6 +1,5 @@
 package com.example.minstrom.ui.screens
 
-import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -8,7 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.minstrom.data.model.ViewModel
+import com.example.minstrom.ui.viewModel.ViewModel
 
 @Composable
 fun NotificationTestScreen(viewModel: ViewModel) {
@@ -20,7 +19,6 @@ fun NotificationTestScreen(viewModel: ViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Greeting(name = "Android")
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
             viewModel.sendNotification(

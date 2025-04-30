@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.minstrom.R
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InviteUsersEmail(navController: NavController) {
@@ -106,8 +107,9 @@ fun InviteUsersEmail(navController: NavController) {
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp),
                 shape = RoundedCornerShape(20.dp),
-                colors = TextFieldDefaults.textFieldColors(
-                    containerColor = Color(0xFFF2F2F2),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFFF2F2F2),
+                    unfocusedContainerColor = Color(0xFFF2F2F2),
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent
                 )
