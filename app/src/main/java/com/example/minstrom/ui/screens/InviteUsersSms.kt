@@ -150,8 +150,10 @@ fun InviteUsersSms(navController: NavController) {
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp),
                 shape = RoundedCornerShape(20.dp),
-                colors = TextFieldDefaults.textFieldColors(
-                    containerColor = Color(0xFFF2F2F2),
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFFF2F2F2),
+                    unfocusedContainerColor = Color(0xFFF2F2F2),
+
                     focusedIndicatorColor = Color.Transparent, // 👈 No line when focused
                     unfocusedIndicatorColor = Color.Transparent // 👈 No line when unfocused
                 )

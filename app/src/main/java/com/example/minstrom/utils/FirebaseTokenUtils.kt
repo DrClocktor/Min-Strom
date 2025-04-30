@@ -2,7 +2,7 @@ package com.example.minstrom.utils
 
 
 import android.util.Log
-import com.example.minstrom.data.model.ViewModel
+import com.example.minstrom.ui.viewModel.ViewModel
 import com.google.firebase.messaging.FirebaseMessaging
 
 // Function to fetch Firebase Token and add it to the ViewModel
