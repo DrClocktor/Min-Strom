@@ -5,12 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.minstrom.ui.calendar.CalendarScreen
 import com.example.minstrom.ui.screens.InviteUsersEmail
 import com.example.minstrom.ui.screens.InviteUsersScreen
 import com.example.minstrom.ui.screens.InviteUsersSms
-import com.example.minstrom.data.model.ViewModel
 import com.example.minstrom.ui.screens.NotificationTestScreen
+import com.example.minstrom.ui.viewmodel.ViewModel
 
 
 @Composable
@@ -30,9 +29,6 @@ fun AppNavigation(navController: NavHostController, viewModel: ViewModel) {
         }
         composable("notification_test") {
             NotificationTestScreen(viewModel)
-        }
-        composable("calendar") {
-            CalendarScreen() // Calendar screen route
         }
     }
 }

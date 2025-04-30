@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.minstrom.data.model.ViewModel
+import com.example.minstrom.ui.viewmodel.ViewModel
 import com.example.minstrom.ui.screens.InviteUsersEmail
 import com.example.minstrom.ui.screens.InviteUsersScreen
 import com.example.minstrom.ui.screens.InviteUsersSms
