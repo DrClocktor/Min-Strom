@@ -94,7 +94,7 @@ fun AddPlanScreen(navController: NavController) {
             PlanActionButton(
                 icon = R.drawable.ic_users,
                 label = "Tilføj brugere",
-                onClick = { navController.navigate("invite_users") }
+                onClick = { navController.navigate("add_user") }
             )
             PlanActionButton(
                 icon = R.drawable.ic_calender,
@@ -117,7 +117,7 @@ fun AddPlanScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Button(
-                onClick = { /* Håndter færdig */ },
+                onClick = { /* Håndtere færdig */ },
                 modifier = Modifier
                     .width(180.dp)
                     .height(50.dp),

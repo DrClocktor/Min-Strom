@@ -17,16 +17,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.minstrom.R
+import com.example.minstrom.ui.viewModel.UserViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddUsersScreen(navController: NavController) {
+fun AddUsersScreen(navController: NavController, viewModel: UserViewModel) {
     var userName by remember { mutableStateOf("Navn") }
     var isEditing by remember { mutableStateOf(false) }
     var accessLevel by remember { mutableStateOf("Kan tilføje plan og fjerne") }
@@ -39,7 +41,11 @@ fun AddUsersScreen(navController: NavController) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("Tilføj brugere", fontSize = 20.sp) },
+                title = {
+                    Text("Tilføj brugere",
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.Bold)
+                         },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Tilbage")
@@ -97,7 +103,9 @@ fun AddUsersScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(32.dp))
 
             // Dropdown for adgang
-            Text("Adgang:", modifier = Modifier.align(Alignment.Start))
+            Text("Adgang:",
+                modifier = Modifier.align(Alignment.Start))
+
             Spacer(modifier = Modifier.height(4.dp))
             var expanded by remember { mutableStateOf(false) }
             Box(
@@ -105,7 +113,7 @@ fun AddUsersScreen(navController: NavController) {
                     .fillMaxWidth()
                     .background(Color(0xFFEFEFEF), RoundedCornerShape(10.dp))
                     .clickable { expanded = true }
-                    .padding(12.dp)
+                    .padding(15.dp)
             ) {
                 Text(accessLevel)
                 DropdownMenu(
@@ -130,11 +138,27 @@ fun AddUsersScreen(navController: NavController) {
                 onClick = { navController.navigate("invite_users")},
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(40.dp),
+                    .height(43.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0A7EFD)),
                 shape = RoundedCornerShape(30.dp)
             ) {
                 Text("Inviter bruger", color = Color.White, fontSize = 16.sp)
+            }
+
+            Spacer(modifier = Modifier.height(35.dp))
+
+            Button(
+                onClick = {  if (userName.isNotBlank()) {
+                    viewModel.addUser(userName)
+                    navController.popBackStack() // Tilbage til UsersScreen
+                }},
+                modifier = Modifier
+                    .width(100.dp)
+                    .height(40.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0A7EFD)),
+                shape = RoundedCornerShape(30.dp)
+            ) {
+                Text("Gem", color = Color.White, fontSize = 16.sp)
             }
         }
     }
@@ -144,5 +168,4 @@ fun AddUsersScreen(navController: NavController) {
 @Composable
 fun AddUsersScreenPreview() {
     AddUsersScreen(navController = rememberNavController())
-}
-*/
+}*/
