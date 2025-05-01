@@ -127,7 +127,7 @@ fun InviteUsersSms(navController: NavController) {
                 placeholder = { Text("12 34 56 78") },
                 leadingIcon = {
                     Image(
-                        painter = painterResource(id = R.drawable.flag_denmark), //flag billede
+                        painter = painterResource(id = R.drawable.flag_denmark), // 👈 Dit flag billede
                         contentDescription = "Flag",
                         modifier = Modifier.size(30.dp),
                     )
@@ -135,7 +135,7 @@ fun InviteUsersSms(navController: NavController) {
                 trailingIcon = {
                     if (isPhoneNumberValid) {
                         Image(
-                            painter = painterResource(id = R.drawable.ic_verified), // check ikon
+                            painter = painterResource(id = R.drawable.ic_verified), // dit grønne check ikon
                             contentDescription = "Verified",
                             modifier = Modifier.size(45.dp)
                         )
@@ -150,10 +150,12 @@ fun InviteUsersSms(navController: NavController) {
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp),
                 shape = RoundedCornerShape(20.dp),
-                colors = TextFieldDefaults.textFieldColors(
-                    containerColor = Color(0xFFF2F2F2),
-                    focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent
+                colors = TextFieldDefaults.colors(
+                    focusedContainerColor = Color(0xFFF2F2F2),
+                    unfocusedContainerColor = Color(0xFFF2F2F2),
+
+                    focusedIndicatorColor = Color.Transparent, // 👈 No line when focused
+                    unfocusedIndicatorColor = Color.Transparent // 👈 No line when unfocused
                 )
             )
 

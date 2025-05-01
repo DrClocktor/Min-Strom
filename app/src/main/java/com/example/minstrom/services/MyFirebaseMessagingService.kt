@@ -14,7 +14,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
 const val channelId = "notification_channel"
-const val channelName = "com.example.minstrom"
+const val channelName = "com.example.minstromnotifikationer"
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
@@ -27,7 +27,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     private fun getRemoteView(title: String, message: String): RemoteViews {
-        val remoteView = RemoteViews("com.example.minstrom", R.layout.notification)
+        val remoteView = RemoteViews("com.example.minstromnotifikationer", R.layout.notification)
         remoteView.setTextViewText(R.id.title, title)
         remoteView.setTextViewText(R.id.message, message)
         remoteView.setImageViewResource(R.id.app_logo, R.drawable.skaermbillede)
@@ -49,7 +49,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setAutoCancel(true)
             .setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
-           // .setContent(getRemoteView(title, message))
+            // .setContent(getRemoteView(title, message))
             .setContentTitle(title)
             .setContentText(message)
 
