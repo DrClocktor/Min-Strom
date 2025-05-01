@@ -38,9 +38,7 @@ fun InviteUsersScreen(navController: NavController) {
                 },
                 navigationIcon = {
                     IconButton(onClick = {
-                        navController.navigate("menu") {
-                            popUpTo("menu") { inclusive = true }
-                        }
+                        navController.popBackStack() // Går én skærm tilbage
                     }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_back),
@@ -49,7 +47,11 @@ fun InviteUsersScreen(navController: NavController) {
                     }
                 },
                 actions = {
-                    IconButton(onClick = { navController.navigate("menu") }) {
+                    IconButton(onClick = {
+                        navController.navigate("menu") {
+                            popUpTo("menu") { inclusive = true }
+                        }
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_menu),
                             contentDescription = "Menu"
@@ -58,11 +60,11 @@ fun InviteUsersScreen(navController: NavController) {
                 }
             )
         }
-    ) { innerPadding ->
+    ) { paddingValues ->
         Column(
             modifier = Modifier
-                .padding(innerPadding)
                 .fillMaxSize()
+                .padding(paddingValues)
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -91,7 +93,7 @@ fun InviteUsersScreen(navController: NavController) {
                 iconRes = R.drawable.ic_facebook,
                 title = "Facebook",
                 subtitle = "Inviter brugere fra Facebook",
-                onClick = { /* Handling for Facebook */ }
+                onClick = { /* TODO: Implement Facebook invite */ }
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -100,7 +102,8 @@ fun InviteUsersScreen(navController: NavController) {
                 iconRes = R.drawable.ic_email,
                 title = "Email",
                 subtitle = "Inviter brugere via Email",
-                onClick = { navController.navigate("invite_email") // til InviteUsersEmail
+                onClick = {
+                    navController.navigate("invite_email")
                 }
             )
 
@@ -111,7 +114,7 @@ fun InviteUsersScreen(navController: NavController) {
                 title = "Kontakter",
                 subtitle = "Inviter brugere via SMS",
                 onClick = {
-                    navController.navigate("invite_sms") // Navigerer til InviteUsersSms
+                    navController.navigate("invite_sms")
                 }
             )
         }
@@ -123,20 +126,24 @@ fun InviteOption(iconRes: Int, title: String, subtitle: String, onClick: () -> U
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick() }
+            .clickable(onClick = onClick)
             .padding(18.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Image(
-            painter = painterResource(id = iconRes),
-            contentDescription = title,
+        Box(
             modifier = Modifier
                 .size(50.dp)
                 .clip(CircleShape)
-                .background(Color.White)
-                .padding(8.dp),
-            contentScale = ContentScale.Fit
-        )
+                .background(Color.White),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = painterResource(id = iconRes),
+                contentDescription = title,
+                modifier = Modifier.size(32.dp),
+                contentScale = ContentScale.Fit
+            )
+        }
 
         Spacer(modifier = Modifier.width(16.dp))
 
@@ -157,7 +164,7 @@ fun InviteOption(iconRes: Int, title: String, subtitle: String, onClick: () -> U
             )
         }
 
-        Image(
+        Icon(
             painter = painterResource(id = R.drawable.ic_arrow_right),
             contentDescription = "Pil frem",
             modifier = Modifier.size(24.dp)
@@ -168,5 +175,4 @@ fun InviteOption(iconRes: Int, title: String, subtitle: String, onClick: () -> U
 @Preview(showBackground = true)
 @Composable
 fun InviteUsersScreenPreview() {
-    InviteUsersScreen(navController = rememberNavController())
 }

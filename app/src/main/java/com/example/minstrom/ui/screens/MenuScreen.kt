@@ -70,7 +70,7 @@ fun MenuScreen(navController: NavController) {
                         iconRes = R.drawable.ic_users,
                         label = "Brugere",
                         onClick = {
-                            navController.navigate("invite_users") // til InviteUsersScreen
+                            navController.navigate("users")
                         }
                     )
                 }
@@ -161,5 +161,4 @@ fun MenuItem(
 @Preview(showBackground = true)
 @Composable
 fun MenuScreenPreview() {
-    MenuScreen(navController = rememberNavController())
 }

@@ -109,7 +109,7 @@ fun InviteUsersSms(navController: NavController) {
             Spacer(modifier = Modifier.height(35.dp))
 
             Image(
-                painter = painterResource(id = R.drawable.invite), // Dit billede her
+                painter = painterResource(id = R.drawable.invite), //  billede her
                 contentDescription = "Telefon illustration",
                 modifier = Modifier
                     .fillMaxWidth()
@@ -165,7 +165,7 @@ fun InviteUsersSms(navController: NavController) {
             Button(
                 onClick = {
                     if (isPhoneNumberValid) {
-                        val message = "Hej! Vil du være med i Min Strøm appen? Download her: [link]"
+                        val message = "Hej! Vil du være med i Min Strøm appen? Download her:https://apps.apple.com/dk/app/min-str%C3%B8m/id1615436711"
                         inviteUserSMS(context, phoneNumber, message)
                         showDialog = true
                     }
@@ -222,7 +222,6 @@ fun isValidPhoneNumber(number: String): Boolean {
 @Preview(showBackground = true)
 @Composable
 fun InviteUsersSmsPreview() {
-    InviteUsersSms(navController = rememberNavController())
 }
 
 

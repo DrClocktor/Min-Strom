@@ -164,8 +164,10 @@ fun isValidEmail(email: String): Boolean {
     return email.contains("@") && email.contains(".") && email.length > 7
 }
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun InviteUsersEmailPreview() {
     InviteUsersEmail(navController = rememberNavController())
 }
+*/
