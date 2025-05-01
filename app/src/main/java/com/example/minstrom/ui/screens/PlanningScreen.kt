@@ -51,7 +51,7 @@ fun PlanningScreen(navController: NavController) {
                         contentColor = MaterialTheme.colorScheme.primary ),
 
                     elevation = ButtonDefaults.buttonElevation(
-                        defaultElevation = 0.dp, // <-- ingen skygge
+                        defaultElevation = 0.dp,
                         pressedElevation = 0.dp,
                         focusedElevation = 0.dp,
                         hoveredElevation = 0.dp

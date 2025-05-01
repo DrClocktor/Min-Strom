@@ -154,8 +154,8 @@ fun InviteUsersSms(navController: NavController) {
                     focusedContainerColor = Color(0xFFF2F2F2),
                     unfocusedContainerColor = Color(0xFFF2F2F2),
 
-                    focusedIndicatorColor = Color.Transparent, // 👈 No line when focused
-                    unfocusedIndicatorColor = Color.Transparent // 👈 No line when unfocused
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
                 )
             )
 

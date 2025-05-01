@@ -19,15 +19,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.InputStream
 
-class ViewModel: ViewModel() {
+class ViewModel : ViewModel() {
 
     val tokens: MutableList<String> = mutableListOf()
 
+    // Function to send notification to FCM
     fun sendNotification(
         context: Context,
         title: String,
         message: String,
-    ){
+    ) {
         viewModelScope.launch {
             sendFCMNotification(
                 context,
@@ -37,12 +38,14 @@ class ViewModel: ViewModel() {
         }
     }
 
+    // Function to send FCM Notification
     private suspend fun sendFCMNotification(
         context: Context,
         title: String,
         message: String,
     ) = withContext(Dispatchers.IO) {
         println("sendFCMNotification trying to get credentials")
+
         val credentials = getServiceAccountAccessToken(context)
 
         if (credentials == null) {
@@ -58,7 +61,7 @@ class ViewModel: ViewModel() {
         val requestFactory = transport.createRequestFactory(HttpCredentialsAdapter(credentials))
 
         // Build the URL for FCM HTTP v1 API endpoint
-        val url = "https://fcm.googleapis.com/v1/projects/minstromnotifikationer-d1fe4/messages:send"
+        val url = "https://fcm.googleapis.com/v1/projects/min-strom-79afb/messages:send"
 
         // Create the message data class
         data class Notification(val title: String, val body: String)
@@ -99,26 +102,25 @@ class ViewModel: ViewModel() {
         }
     }
 
+    // Function to load service account credentials
     private suspend fun getServiceAccountAccessToken(context: Context): GoogleCredentials? = withContext(
         Dispatchers.IO) {
         println("Inside getServiceAccountAccessToken")
         try {
             // Access the file from the assets directory
-            val inputStream: InputStream = context.assets.open("minstromnotifikationer-d1fe4-firebase-adminsdk-fbsvc-29d9e34e7c.json")
+            val inputStream: InputStream = context.assets.open("min-strom-79afb-firebase-adminsdk-fbsvc-3a892562f5.json")
             val credentials = ServiceAccountCredentials
                 .fromStream(inputStream)
                 .createScoped(listOf("https://www.googleapis.com/auth/firebase.messaging"))
 
             println("Credentials: $credentials")
 
-            // Refresh the access token on a background thread
-            // credentials.refreshAccessToken() // Removed this line
-
+            // Return the credentials
             return@withContext credentials
         } catch (e: Exception) {
             println("Error loading service account credentials: ${e.message}")
             e.printStackTrace()
-            println("Exception type: ${e::class.java.name}") // Print the type of exception
+            println("Exception type: ${e::class.java.name}")
             return@withContext null
         }
     }
